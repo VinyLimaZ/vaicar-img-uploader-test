@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Image < ApplicationRecord
   include SluggedToParam
 
@@ -5,6 +7,7 @@ class Image < ApplicationRecord
   before_save :create_slug
 
   private
+
   def create_slug
     Slugfy.call(self.class)
   end

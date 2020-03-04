@@ -5,7 +5,6 @@ class CreateImages < ActiveRecord::Migration[5.2]
     create_table :images do |t|
       t.text :description
       t.string :owner
-      t.text :path
       t.string :slug
 
       t.timestamps
