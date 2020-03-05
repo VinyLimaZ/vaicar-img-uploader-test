@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      image: 'Image'
+    attributes:
+      image:
+        file: 'image file'
+        owner: 'owner'
+        description: 'description'
+    errors:
+      format: "%{message}"
+      models:
+        image:
+          attributes:
+            file:
+              blank: "%{attribute} wasn't present, choose one to upload"
+            owner:
+              blank: 'you need to fill the %{attribute} field'
+            description:
+              blank: 'you need to fill the %{attribute} field'

@@ -1,0 +1,9 @@
+<% if object.errors.any? %>
+  <div class="form_error">
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= "Error: #{msg.capitalize }" %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
