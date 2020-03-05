@@ -9,6 +9,6 @@ class Image < ApplicationRecord
   private
 
   def create_slug
-    Slugfy.call(self.class)
+    self.slug = ::Slugfy.call(self.class)
   end
 end

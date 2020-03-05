@@ -1,0 +1,11 @@
+<h1>See your image:</h1>
+<div>
+  <span>Image owner: </span>
+  <span><%= @image.owner %>
+  <span>Image description: </span>
+  <%= @image.description %>
+</div>
+<div>
+  <span>Image:</span>
+  <%= image_tag @image.file %>
+</div>

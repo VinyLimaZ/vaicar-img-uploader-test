@@ -9,6 +9,10 @@ class ImagesController < ApplicationController
     @image = Image.create(image_params)
   end
 
+  def show
+    @image = Image.find_by(slug: params[:slug])
+  end
+
   private
 
   def image_params

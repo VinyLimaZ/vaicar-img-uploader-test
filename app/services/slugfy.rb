@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Slugfy
   class << self
     def call(klass)
@@ -10,11 +9,7 @@ module Slugfy
     private
 
     def slugfy
-      loop do
-        slug = generate_slug
-
-        break if valid_slug?(slug)
-      end
+      slug = generate_slug until valid_slug?(slug)
       slug
     end
 
@@ -23,7 +18,7 @@ module Slugfy
     end
 
     def valid_slug?(slug)
-      @klass.find_by_slug(slug).count.zero?
+      @klass.find_by(slug: slug).blank?
     end
   end
 end
