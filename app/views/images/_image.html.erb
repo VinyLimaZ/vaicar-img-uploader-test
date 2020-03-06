@@ -1,0 +1,23 @@
+<div>
+  <span>Image slug: </span>
+  <span><%= link_to image.slug, image_path(image) %>
+  <span>Image owner: </span>
+  <span><%= image.owner %>
+  <span>Image description: </span>
+  <span><%= image.description %></span>
+  <span>Image uploaded_at: </span>
+  <span><%= image.created_at %></span>
+</div>
+<div>
+  <span>Image:</span>
+  <%= image_tag image.file %>
+</div>
+<div>
+  <h3>Metadata information:</h3>
+  <span>Content type: </span>
+  <span><%= image.content_type %></span>
+  <span>Widht: </span>
+  <span><%= image.width %></span>
+  <span>Height: </span>
+  <span><%= image.height %></span>
+</div>
