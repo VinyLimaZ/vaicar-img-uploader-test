@@ -1,23 +1,43 @@
-<div>
-  <span>Image slug: </span>
-  <span><%= link_to image.slug, image_path(image) %>
-  <span>Image owner: </span>
-  <span><%= image.owner %>
-  <span>Image description: </span>
-  <span><%= image.description %></span>
-  <span>Image uploaded_at: </span>
-  <span><%= image.created_at %></span>
+<div class="row">
+  <div class="col s6">
+    <span>Image slug: </span>
+    <span><%= link_to image.slug, image_path(image) %>
+  </div>
+  <div class="col s6">
+    <span>Image owner: </span>
+    <span><%= image.owner %>
+  </div>
+  <div class="col s12">
+    <span>Image description: </span>
+    <span><%= image.description %></span>
+  </div>
+  <div class="col s12">
+    <span>Image uploaded_at: </span>
+    <span><%= image.created_at %></span>
+  </div>
 </div>
-<div>
-  <span>Image:</span>
-  <%= image_tag image.file %>
+<div class="row">
+  <div class="col s12">
+    <span>Image:</span>
+  </div>
+  <div class="col s12">
+    <%= image_tag image.file, class: 'responsive-img' %>
+  </div>
 </div>
-<div>
+<div class="row">
   <h3>Metadata information:</h3>
-  <span>Content type: </span>
-  <span><%= image.content_type %></span>
-  <span>Widht: </span>
-  <span><%= image.width %></span>
-  <span>Height: </span>
-  <span><%= image.height %></span>
+  <div class="col s12">
+    <span>Content type: </span>
+    <span><%= image.content_type %></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col s6">
+    <span>Widht: </span>
+    <span><%= image.width %> px</span>
+  </div>
+  <div class="col s6">
+    <span>Height: </span>
+    <span><%= image.height %> px</span>
+  </div>
 </div>
