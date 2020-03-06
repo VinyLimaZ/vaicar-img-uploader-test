@@ -15,15 +15,14 @@ class Image < ApplicationRecord
   end
 
   def width
-    file&.metadata[:width]
+    file&.metadata&.dig(:width)
   end
 
   def height
-    file&.metadata[:height]
+    file&.metadata&.dig(:height)
   end
 
   private
-
   def create_slug
     self.slug ||= ::Slugfy.call(self.class)
   end

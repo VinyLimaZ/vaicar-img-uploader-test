@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'Images' do
   describe '#show' do
     context 'when find an image' do
@@ -22,14 +24,14 @@ describe 'Images' do
   end
 
   describe '#create' do
-    let(:image_file) { fixture_file_upload(Rails.root.join('spec', 'support', 'images', 'img_1.jpg')) }
+    let(:image_file) { fixture_file_upload(Rails.root.join('spec/support/images/img_1.jpg')) }
     context 'when all params are valid' do
       let(:image_params) { attributes_for(:image).merge(file: image_file) }
 
       it 'creates a new image object with file attached' do
-        expect {
+        expect do
           post images_path, params: { image: image_params }
-        }.to change(ActiveStorage::Attachment, :count).by 1
+        end.to change(ActiveStorage::Attachment, :count).by 1
 
         expect(response).to redirect_to image_path(Image.last)
         follow_redirect!
@@ -44,7 +46,7 @@ describe 'Images' do
         post images_path, params: { image: image_params }
         expect(response.body).to include 'You need to fill the owner field'
         expect(response.body).to include 'You need to fill the description field'
-        expect(response.body).to include "Image file wasn&#39;t present, choose one to upload"
+        expect(response.body).to include 'Image file wasn&#39;t present, choose one to upload'
       end
     end
   end

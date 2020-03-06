@@ -8,7 +8,6 @@ module Slugfy
     end
 
     private
-
     def slugfy
       slug = generate_slug while invalid_slug?(slug)
 
