@@ -2,9 +2,7 @@
 
 FactoryBot.define do
   factory :image do
-    description { 'MyText' }
-    owner { 'MyString' }
-    path { 'MyText' }
-    slug { 'MyString' }
+    description { Faker::Quote.matz }
+    owner { Faker::TvShows::BreakingBad.character }
   end
 end
