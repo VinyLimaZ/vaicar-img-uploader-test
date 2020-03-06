@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.configure do |config|
-  require 'database_cleaner'
-
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -12,28 +10,6 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
-  config.before(:suite) do
-    DatabaseCleaner.orm = :active_record
-    DatabaseCleaner.clean_with :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each, :database) do
-    # open transaction
-    DatabaseCleaner.start
-  end
-
-  config.after(:each, :database) do
-    DatabaseCleaner.clean
-  end
 
   #   # This allows you to limit a spec run to individual examples or groups
   #   # you care about by tagging them with `:focus` metadata. When nothing
