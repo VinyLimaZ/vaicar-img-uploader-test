@@ -8,11 +8,9 @@ describe Image do
     it { is_expected.to validate_presence_of(:description) }
 
     context 'when Image' do
-      let(:image) { build(:image) }
+      let(:image) { build(:image, :with_image) }
 
       describe 'has a file attached on it' do
-        before { image.file.attach(io: File.open('spec/support/images/img_1.jpg'), filename: 'img.jpg') }
-
         it 'is valid' do
           expect(image.file.attached?).to be true
           expect(image.valid?).to be true

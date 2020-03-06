@@ -10,7 +10,8 @@ module Slugfy
     private
 
     def slugfy
-      slug = generate_slug until valid_slug?(slug)
+      slug = generate_slug while invalid_slug?(slug)
+
       slug
     end
 
@@ -18,8 +19,8 @@ module Slugfy
       SecureRandom.uuid
     end
 
-    def valid_slug?(slug)
-      @klass.find_by(slug: slug).blank?
+    def invalid_slug?(slug)
+      slug.blank? || @klass.exists?(slug: slug)
     end
   end
 end

@@ -17,6 +17,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find_by(slug: params[:slug])
+    redirect_to new_image_path and return if @image.blank?
   end
 
   private

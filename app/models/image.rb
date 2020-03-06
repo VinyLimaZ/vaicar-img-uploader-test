@@ -2,17 +2,18 @@
 
 class Image < ApplicationRecord
   include SluggedToParam
+  extend ActiveModel::Callbacks
 
   has_one_attached :file
-  before_save :create_slug
+  before_validation :create_slug
 
-  validates :owner, :description, presence: true
+  validates :owner, :description, :slug, presence: true
   validate :ensure_has_file
 
   private
 
   def create_slug
-    self.slug = ::Slugfy.call(self.class)
+    self.slug ||= ::Slugfy.call(self.class)
   end
 
   def ensure_has_file
