@@ -10,6 +10,18 @@ class Image < ApplicationRecord
   validates :owner, :description, :slug, presence: true
   validate :ensure_has_file
 
+  def content_type
+    file&.blob&.content_type
+  end
+
+  def width
+    file&.metadata[:width]
+  end
+
+  def height
+    file&.metadata[:height]
+  end
+
   private
 
   def create_slug

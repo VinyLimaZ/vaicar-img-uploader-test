@@ -48,4 +48,28 @@ describe 'Images' do
       end
     end
   end
+
+  describe '#index' do
+    context 'when has an image on database' do
+      let!(:image_one) { create(:image, :with_image) }
+      let!(:image_two) { create(:image, :with_image) }
+
+      it 'renders all images' do
+        get images_path
+
+        expect(response.body).to include image_one.owner
+        expect(response.body).to include image_two.owner
+      end
+    end
+
+    context 'when hasnt an image on database' do
+      it 'redirects to new image path' do
+        get images_path
+
+        expect(response).to redirect_to new_image_path
+        follow_redirect!
+        expect(path).to eq new_image_path
+      end
+    end
+  end
 end

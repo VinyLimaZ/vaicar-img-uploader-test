@@ -20,6 +20,11 @@ class ImagesController < ApplicationController
     redirect_to new_image_path and return if @image.blank?
   end
 
+  def index
+    @images = Image.with_attached_file
+    redirect_to new_image_path and return if @images.blank?
+  end
+
   private
 
   def image_params

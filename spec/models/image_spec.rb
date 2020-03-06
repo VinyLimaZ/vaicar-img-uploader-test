@@ -27,4 +27,29 @@ describe Image do
       end
     end
   end
+
+  describe 'image delegations to active storage blob' do
+    before { image.file.analyze }
+
+    describe '#content_type' do
+      let(:image) { create(:image, :with_image) }
+      it 'returns the blob content_type value' do
+        expect(image.content_type).to eq 'image/jpeg'
+      end
+    end
+
+    describe '#width' do
+      let(:image) { create(:image, :with_image) }
+      it 'returns the metadatum width value' do
+        expect(image.width).to eq 700
+      end
+    end
+
+    describe '#height' do
+      let(:image) { create(:image, :with_image) }
+      it 'returns the metadatum height value' do
+        expect(image.height).to eq 400
+      end
+    end
+  end
 end
