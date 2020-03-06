@@ -3,11 +3,27 @@
 <%= render 'partials/object_errors', object: @image %>
 
 <%= form_with model: @image, local: true do |f| %>
-  <%= f.label :file %>
-  <%= f.file_field :file %>
-  <%= f.label :owner %>
-  <%= f.text_field :owner %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :owner, 'Owner' %>
+      <%= f.text_field :owner  %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.label :description, 'Description' %>
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="row">
+  <div class="file-field input-field">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Image File</span>
+        <%= f.file_field :file %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </div>
+  <%= f.submit 'Upload', class: 'btn waves-effect waves-light' %>
 <% end %>
