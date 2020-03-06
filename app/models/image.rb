@@ -16,8 +16,8 @@ class Image < ApplicationRecord
   end
 
   def ensure_has_file
-    return if self.file.attached?
+    return if file.attached?
 
-    self.errors.add(:file, :blank)
+    errors.add(:file, :blank)
   end
 end
