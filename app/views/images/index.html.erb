@@ -1,4 +1,5 @@
-<span>See all images uploaded until now: </span>
+<h1>See all images uploaded until now: </h1>
 <% @images.each do |image| %>
   <%= render partial: image %>
+  <hr>
 <%end %>

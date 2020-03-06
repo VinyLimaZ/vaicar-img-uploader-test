@@ -7,11 +7,15 @@ ruby '2.6.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'material_icons'
+gem 'materialize-sass'
 gem 'mini_magick', '~> 4.8'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'sass-rails', '~> 5.0'
+gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
