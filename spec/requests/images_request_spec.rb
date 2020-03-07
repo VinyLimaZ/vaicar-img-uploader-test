@@ -13,7 +13,7 @@ describe 'Images' do
     end
 
     context "when don't find an image" do
-      let(:image) { build_stubbed(:image, slug: '123') }
+      let(:image) { build(:image, slug: '123') }
       it 'redirects to new page' do
         get image_path(image)
         follow_redirect!
