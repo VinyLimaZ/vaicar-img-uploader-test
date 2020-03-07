@@ -14,6 +14,7 @@ en:
           attributes:
             file:
               blank: "%{attribute} wasn't present, choose one to upload"
+              wrong_type: "%{attribute} isn't an image! Choose an image to proceed"
             owner:
               blank: 'you need to fill the %{attribute} field'
             description:

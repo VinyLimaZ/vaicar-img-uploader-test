@@ -8,7 +8,7 @@ class Image < ApplicationRecord
   before_validation :create_slug
 
   validates :owner, :description, :slug, presence: true
-  validate :ensure_has_file
+  validate :valid_file?
 
   def content_type
     file&.blob&.content_type
@@ -27,9 +27,8 @@ class Image < ApplicationRecord
     self.slug ||= ::Slugfy.call(self.class)
   end
 
-  def ensure_has_file
-    return if file.attached?
-
-    errors.add(:file, :blank)
+  def valid_file?
+    errors.add(:file, :blank) and return unless file.attached?
+    errors.add(:file, :wrong_type) unless file.image?
   end
 end

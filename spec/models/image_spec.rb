@@ -11,9 +11,15 @@ describe Image do
       let(:image) { build(:image, :with_image) }
 
       describe 'has a file attached on it' do
-        it 'is valid' do
+        it "and is an image file it's valid" do
           expect(image.file.attached?).to be true
           expect(image.valid?).to be true
+        end
+
+        let(:invalid_image) { build(:image, :with_invalid_attachment) }
+        it "but isn't an image, it's invalid" do
+          expect(invalid_image.valid?).to be false
+          expect(invalid_image.errors.full_messages).to include "image file isn't an image! Choose an image to proceed"
         end
       end
 
