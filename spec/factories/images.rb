@@ -13,5 +13,14 @@ FactoryBot.define do
         )
       end
     end
+
+    trait :with_invalid_attachment do
+      after(:build) do |image|
+        image.file.attach(
+          filename: 'text.txt',
+          io: File.open(Rails.root.join('spec/support/images/text.txt'))
+        )
+      end
+    end
   end
 end
