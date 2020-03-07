@@ -6,6 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'factory_bot_rails'
+gem 'faker'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'material_icons'
@@ -19,12 +21,9 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rubocop-rails'
-  gem 'rubycritic', require: false
 end
 
 group :development do
@@ -32,7 +31,6 @@ group :development do
   gem 'overcommit'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do

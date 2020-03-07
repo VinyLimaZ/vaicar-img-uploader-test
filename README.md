@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What are all this sheeet?
 
-Things you may want to cover:
+Hello guys, I'm Vinicius and this is my solution to the problem that you
+brought to me :D
 
+## Versions
 * Ruby version
+2.6.2
+* Rails version
+5.2.4.1
 
-* System dependencies
+# How to?
 
-* Configuration
+- First `bundle install`
+- Second `rails db:create db:migrate db:test:prepare`
+- Third `rspec`
+- Fourth `rails s`
 
-* Database creation
+## For lazy people like all oldscholl programmers and I, even I being a noob
 
-* Database initialization
+[CLICK HERE TO GO TO ~~narnia~~ Heroku!](https://vaicar-image-uploader-test.herokuapp.com/images/new)
 
-* How to run the test suite
+## A little explanation about my solution:
 
-* Services (job queues, cache servers, search engines, etc.)
+I made the most simple solution!
+First I installed the ActiveStorage to handle the upload and the metadata;
+Second I made a little service to generate and verify the slug, only to make it
+decoupled and easy to reuse;
+Third I included a front end library to style the app;
+Last but not least I made the specs to verify the behavior of the
+application;
 
-* Deployment instructions
+==============================================================
 
-* ...
+Enjoy and hire me, please (͡ ° ͜ʖ ͡ °)
+
+==============================================================
+
+
